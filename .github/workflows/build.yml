@@ -99,7 +99,7 @@ jobs:
         # we need boost
         CIBW_BUILD_VERBOSITY_LINUX: 0
         CIBW_BUILD_VERBOSITY_MACOS: 0
-        CIBW_BUILD_VERBOSITY_WINDOWS: 0
+        CIBW_BUILD_VERBOSITY_WINDOWS: 1
         CIBW_MANYLINUX_X86_64_IMAGE: manylinux2010
         CIBW_ENVIRONMENT_LINUX: "PATH=/project/cmake-3.17.3-Linux-`uname -m`/bin:$PATH"
         CIBW_BEFORE_ALL_LINUX: >
@@ -114,7 +114,7 @@ jobs:
           python -m pip install --upgrade pip
         CIBW_ENVIRONMENT_MACOS: MACOSX_DEPLOYMENT_TARGET=10.14
         CIBW_ENVIRONMENT_WINDOWS: SETUPTOOLS_USE_DISTUTILS=stdlib
-        CIBW_DEPENDENCY_VERSIONS: ./constraints.txt
+        CIBW_DEPENDENCY_VERSIONS: pinned
         CIBW_TEST_REQUIRES: pytest
         CIBW_TEST_COMMAND: py.test -v {project}/tests -s
 

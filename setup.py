@@ -214,3 +214,5 @@ else:
         cmdclass=dict(build_ext=CMakeBuild),
         zip_safe=False,
     )
+
+print ("setuptools version is:", setuptools.__version__)
