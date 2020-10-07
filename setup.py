@@ -215,4 +215,4 @@ else:
         zip_safe=False,
     )
 
-print ("setuptools version is:", setuptools.__version__)
+print("setuptools version is:", setuptools.__version__)
