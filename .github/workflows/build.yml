@@ -54,8 +54,8 @@ jobs:
         pip install mypy
         mypy --config-file mypi.ini setup.py tests
 
-    - name: Build source distribution with Ubuntu
-      if: startsWith(matrix.os, 'ubuntu')
+    - name: Build source distribution with MacOS
+      if: startsWith(matrix.os, 'macos')
       run: |
         pip install pep517
         python -m pep517.build --source --out-dir dist .
@@ -94,7 +94,7 @@ jobs:
         python -m cibuildwheel --output-dir dist
       env:
         # build python 3.7 and 3.8
-        CIBW_BUILD: cp37-* cp38-*
+        CIBW_BUILD: cp37-* cp38-* cp-39*
         CIBW_SKIP: '*-manylinux_i686 *-win32'
         # we need boost
         CIBW_BUILD_VERBOSITY_LINUX: 0
