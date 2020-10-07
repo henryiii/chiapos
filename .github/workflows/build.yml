@@ -9,7 +9,8 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [macos-latest, ubuntu-20.04, windows-latest]
+        os: [windows-latest]
+#        os: [macos-latest, ubuntu-20.04, windows-latest]
 
     steps:
     - name: Cancel previous runs on the same branch
@@ -94,7 +95,8 @@ jobs:
         python -m cibuildwheel --output-dir dist
       env:
         # build python 3.7 and 3.8
-        CIBW_BUILD: cp37-* cp38-* cp39-*
+        CIBW_BUILD: cp39-*
+#        CIBW_BUILD: cp37-* cp38-* cp39-*
         CIBW_SKIP: '*-manylinux_i686 *-win32'
         # we need boost
         CIBW_BUILD_VERBOSITY_LINUX: 0
